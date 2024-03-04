@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="dock_view_form" model="ir.ui.view">
+        <field name="name">dock.form</field>
+        <field name="model">dock</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="dock_name"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dock_view_list" model="ir.ui.view">
+        <field name="name">dock.tree</field>
+        <field name="model">dock</field>
+        <field name="arch" type="xml">
+            <tree string="Docks" editable="bottom">
+                <field name="dock_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="dock_action" model="ir.actions.act_window">
+        <field name="name">Docks</field>
+        <field name="res_model">dock</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
