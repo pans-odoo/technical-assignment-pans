@@ -31,4 +31,6 @@
         <field name="res_model">dock</field>
         <field name="view_mode">list,form</field>
     </record>
+
+    <menuitem id="dock_menu" name="Docks" parent="fleet.fleet_models_configuration" action="transport_management.dock_action"/>
 </odoo>

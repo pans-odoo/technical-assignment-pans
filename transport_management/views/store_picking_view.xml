@@ -7,11 +7,9 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='scheduled_date']" position="after">
                 <field name="weight"/>
-                <field name="volume"/> 
+                <field name="volume"/>
+                <field name="transfer_lines"/>
             </xpath>
         </field>
     </record>
-
-    
-
 </odoo>
