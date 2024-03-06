@@ -40,3 +40,9 @@ class StockPickingBatchInherited(models.Model):
     def _compute_line(self):
         for record in self:
             record.line = len(record.move_ids)
+
+
+    @api.depends('weight', 'volume')
+    def _compute_display_name(self):
+        for batch in self:
+            batch.display_name = f"{batch.name}: {round(batch.weight, 2)}kg, {round(batch.volume, 2)}m\N{SUPERSCRIPT THREE}, {batch.vehicle_id.driver_id.name}"

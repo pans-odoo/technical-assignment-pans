@@ -17,12 +17,12 @@
         </field>
     </record>
 
-    <record id="stock_picking_batch_graph_view" model="ir.ui.view">
-        <field name="name">stock.picking.batch.graph</field>
+    <record id="tm_stock_picking_batch_graph_view" model="ir.ui.view">
+        <field name="name">tm.stock.picking.batch.graph</field>
         <field name="model">stock.picking.batch</field>
         <field name="arch" type="xml">
             <graph string="Graph">
-                <field name="scheduled_date"/>
+                <field name="scheduled_date" interval="day" type="row"/>
                 <field name="vehicle_category_id"/>
                 <field name="weight" type="measure"/>
                 <field name="volume" type="measure"/>
@@ -32,17 +32,21 @@
         </field>
     </record>
 
-    <record id="stock_picking_batch_gantt_view" model="ir.ui.view">
-        <field name="name">stock.picking.batch.gantt</field>
+    <record id="tm_stock_picking_batch_gantt_view" model="ir.ui.view">
+        <field name="name">tm.stock.picking.batch.gantt</field>
         <field name="model">stock.picking.batch</field>
         <field name="arch" type="xml">
             <gantt 
                 date_start="scheduled_date" 
                 date_stop="scheduled_date"
-                default_group_by="dock_id"
-                color="id"
+                default_group_by="dock_id,vehicle_id"
+                color="vehicle_id"
                 decoration-info="state == 'draft'"
+                default_scale="week"
             >
+                <field name="name"/>
+                <field name="volume"/>
+                <field name="weight"/>
                 <field name="state"/>
             </gantt>
         </field>
