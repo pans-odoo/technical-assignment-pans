@@ -8,7 +8,7 @@ class Dock(models.Model):
     _name = "dock"
     _description = "Dock model"
     
-    dock_name = fields.Char(string="Dock Name")
+    dock_name = fields.Char(string="Dock")
 
     @api.depends("dock_name")
     def _compute_display_name(self):

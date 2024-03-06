@@ -10,11 +10,8 @@ class FleetCategoryInherited(models.Model):
     max_weight = fields.Float("Max Weight (Kg)")
     max_volume = fields.Float("Max Volume (msq)")
 
-    @api.depends("name", "max_weight", "max_volume")
+    @api.depends("max_weight", "max_volume")
     def _compute_display_name(self):
         for record in self:
-            record_name = record.name
             if record.max_weight and record.max_volume:
-                record_name = f"{record.name} ({record.max_weight} Kg), ({record.max_volume} msq)"
-            
-            record.display_name = record_name
+                record.display_name = f"{record.name} ({record.max_weight} Kg), ({record.max_volume} msq)"
