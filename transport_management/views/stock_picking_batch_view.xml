@@ -11,8 +11,8 @@
                 <field name="vehicle_category_id"/>
                 <field name="weight" invisible="not vehicle_category_id" widget="progressbar"/>
                 <field name="volume" invisible="not vehicle_category_id" widget="progressbar"/>
-                <field name="transfer"/>
-                <field name="line"/>
+                <field name="transfer" invisible="1"/>
+                <field name="line" invisible="1"/>
             </xpath>
         </field>
     </record>
