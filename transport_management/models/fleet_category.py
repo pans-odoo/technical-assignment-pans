@@ -14,4 +14,4 @@ class FleetCategoryInherited(models.Model):
     def _compute_display_name(self):
         for record in self:
             if record.max_weight and record.max_volume:
-                record.display_name = f"{record.name} ({record.max_weight} Kg), ({record.max_volume} msq)"
+                record.display_name = f"{record.name} ({record.max_weight} Kg, {record.max_volume} msq)"
