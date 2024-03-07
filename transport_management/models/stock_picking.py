@@ -15,12 +15,11 @@ class StockPickingInherited(models.Model):
     api.depends("move_ids")
     def _compute_metrics(self):
         for record in self:
+            total_weight = 0.0
+            total_volume = 0.0
             if record.move_ids:
-                total_weight = 0.0
-                total_volume = 0.0
-                for line in record.move_ids:
-                    total_weight += line.product_id.weight
-                    total_volume += line.product_id.volume
+                total_weight = sum(record.move_ids.product_id.mapped("weight"))
+                total_volume = sum(record.move_ids.product_id.mapped("volume"))
         
             record.weight = total_weight
             record.volume = total_volume
