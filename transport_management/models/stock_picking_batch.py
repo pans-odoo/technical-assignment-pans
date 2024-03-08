@@ -16,7 +16,7 @@ class StockPickingBatchInherited(models.Model):
     line = fields.Integer(string="Line", compute="_compute_line", store=True)
 
     @api.onchange("vehicle_id")
-    def update_vehicle_category(self):
+    def _onchange_vehicle_category(self):
         self.vehicle_category_id = self.vehicle_id.category_id
 
     @api.depends("vehicle_category_id")
