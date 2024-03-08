@@ -5,6 +5,7 @@
 {
     'name': 'Transport Management System',
     'depends': [
+        "stock",
         "stock_picking_batch",
         "fleet",
     ],

@@ -9,10 +9,23 @@
                 <field name="dock_id"/>
                 <field name="vehicle_id"/>
                 <field name="vehicle_category_id"/>
+                <field name="total_weight" invisible="not vehicle_category_id"/>
+                <field name="total_volume" invisible="not vehicle_category_id"/>
                 <field name="weight" invisible="not vehicle_category_id" widget="progressbar"/>
                 <field name="volume" invisible="not vehicle_category_id" widget="progressbar"/>
                 <field name="transfer" invisible="1"/>
                 <field name="line" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="tm_view_picking_move_tree_inherited_make_editable" model="ir.ui.view">
+        <field name="name">tm.stock.picking.batch.inherited.tree</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock_picking_batch.view_picking_move_tree_inherited"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="editable">bottom</attribute>
             </xpath>
         </field>
     </record>
